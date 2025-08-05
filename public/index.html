@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>EDUTECHUB</title>
+  <link rel="icon" href="../img/logo1.jpg" type="image/png" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/index.css" />
+  <script defer src="../crear_clase.js" type="module"></script>
+  <script defer src="../unirse_clase.js" type="module"></script>
+  <script defer src="../obtener_clases.js" type="module"></script>
+  <script defer src="../app.js" type="module"></script>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="../img/logo1.jpg" alt="Logo de la compañia" />
+      <h1 class="nombre-logo">EDUTECHUB</h1>
+    </div>
+   
+  </header>
+
+  <main>
+    <div class="container">
+      <img src="../img/logo1.jpg" alt="" class="illustration" />
+      <div class="botonsito">
+        <button id="btnCrearClase" class="btn btn-outline">Crear clase</button>
+        <button id="btnUnirseClase" class="btn btn-primary">Unirse a clase</button>
+      </div>
+    </div>
+
+    <!-- Formulario para crear clase -->
+    <div id="crearClaseForm" style="display:none;">
+      <form id="formCrearClase">
+        <input type="text" name="materia" placeholder="Materia" required />
+        <input type="text" name="nombre" placeholder="Nombre de la clase" required />
+        <input type="text" name="seccion" placeholder="Sección" required />
+        <input type="text" name="aula" placeholder="Aula" required />
+        <input type="text" name="creador" placeholder="Profesor" required />
+        <button type="submit">Crear clase</button>
+      </form>
+    </div>
+
+    <!-- Formulario para unirse a clase -->
+    <div id="unirseClaseForm" style="display:none;">
+      <form id="formUnirseClase">
+        <input type="text" name="materia" placeholder="Materia" required />
+        <input type="text" name="codigo" placeholder="Código de clase" required />
+        <button type="submit">Unirse a clase</button>
+      </form>
+    </div>
+
+    <!-- Contenedor de tarjetas -->
+    <div id="coursesList"></div>
+  </main>
+
+  <footer>
+    <p>© Derechos de autor © 2025 EdutechHub.</p>
+  </footer>
+
+  <script>
+    // Menú desplegable (celular)
+    const toggle = document.querySelector('.menu-toggle');
+    const menu = document.getElementById('menu');
+    toggle.addEventListener('click', () => menu.classList.toggle('show'));
+    window.addEventListener('click', e => {
+      if (!toggle.contains(e.target) && !menu.contains(e.target)) menu.classList.remove('show');
+    });
+
+    // Mostrar/ocultar formularios
+    document.getElementById('btnCrearClase').onclick = () => {
+      document.getElementById('crearClaseForm').style.display = 'block';
+      document.getElementById('unirseClaseForm').style.display = 'none';
+    };
+    document.getElementById('btnUnirseClase').onclick = () => {
+      document.getElementById('crearClaseForm').style.display = 'none';
+      document.getElementById('unirseClaseForm').style.display = 'block';
+    };
+
+    // Al cargar la página ocultar formularios
+    window.onload = () => {
+      document.getElementById('crearClaseForm').style.display = 'none';
+      document.getElementById('unirseClaseForm').style.display = 'none';
+    };
+  </script>
+</body>
+</html>

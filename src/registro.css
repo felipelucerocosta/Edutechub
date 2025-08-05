@@ -1,0 +1,264 @@
+/* Reset y estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+    background-color: #EEE;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Header y logo */
+header {
+    background-color: #4380b48a;
+    min-height: 90px;
+    display: flex;
+    justify-content: center;
+}
+
+div.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 65px;
+    width: 70px;
+    border-radius: 50%;
+    margin-right: 15px;
+    transition: all 0.4s ease;
+}
+
+.logo img:hover {
+    transform: scale(1.1);
+}
+
+a.nombre-logo {
+    font-size: 28px;
+    transition: all 0.4s ease;
+}
+
+a.nombre-logo:hover {
+    transform: scale(1.1);
+}
+
+a {
+    text-decoration: none;
+    color: #313131;
+    font-weight: 500;
+}
+
+/* Main y contenedor */
+main {
+    width: 100%;
+    margin-top: 200px;
+}
+
+.contenedor__todo {
+    width: 100%;
+    max-width: 760px;
+    margin: auto;
+    position: relative;
+}
+
+/* Caja trasera (info login/register) */
+.caja__trasera {
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    background-color: #234a6dab;
+    border-radius: 10px;
+    border: solid 2px #d1d1d1;
+}
+
+.caja__trasera div {
+    margin: 100px 40px;
+    color: #EEE;
+    transition: all 500ms;
+}
+
+.caja__trasera div p,
+.caja__trasera button {
+    margin-top: 30px;
+}
+
+.caja__trasera div h3 {
+    font-weight: 400;
+    font-size: 26px;
+}
+
+.caja__trasera div p {
+    font-size: 16px;
+    font-weight: 300;
+}
+
+.caja__trasera button {
+    padding: 10px 40px;
+    border: 2px solid #EEE;
+    font-size: 14px;
+    background: transparent;
+    font-weight: 600;
+    cursor: pointer;
+    color: #EEE;
+    outline: none;
+    transition: all 300ms;
+}
+
+.caja__trasera button:hover {
+    background: #EEE;
+    color: rgb(41, 39, 39);
+}
+
+/* Formularios */
+.contenedor__login-register {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 360px;
+    position: relative;
+    top: -185px;
+    left: 0;
+    transition: left 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+}
+
+.contenedor__login-register form {
+    width: 100%;
+    padding: 80px 20px;
+    background: #eee;
+    position: absolute;
+    border-radius: 20px;
+    border: solid 2.5px #d1d1d1;
+}
+
+.contenedor__login-register form h2 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: rgb(41, 39, 39);
+}
+
+.contenedor__login-register form input {
+    width: 90%;
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    background: #d1d1d1;
+    font-size: 16px;
+    outline: none;
+    margin-right: 30px;
+}
+
+.contenedor__login-register form button {
+    padding: 10px 40px;
+    margin-top: 40px;
+    font-size: 14px;
+    background: #d1d1d1;
+    font-weight: 600;
+    cursor: pointer;
+    color: rgb(41, 39, 39);
+    outline: none;
+    border: none;
+    transition: all 300ms;
+}
+
+.contenedor__login-register form button:hover {
+    background-color: #466179;
+    color: #eee;
+}
+
+/* Formularios visibles */
+.formulario__login {
+    opacity: 1;
+    display: block;
+}
+
+.formulario__register {
+    display: none;
+}
+
+/* Modo móvil oculto inicialmente */
+div.container_mobile {
+    display: none;
+}
+
+/* Responsive design */
+@media (max-width: 900px) {
+
+    /* Oculta el contenedor principal */
+    .contenedor__todo {
+        display: none;
+    }
+
+    /* Muestra el contenedor móvil */
+    div.container_mobile {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    /* Caja principal en móvil */
+    div.caja_form {
+        max-width: 450px;
+        background-color: #466179;
+        border-radius: 40px;
+        width: 80%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        box-shadow: 0 0 10px #466179;
+    }
+
+    div.caja_form h2 {
+        color: #eee;
+        text-align: center;
+        margin-bottom: 40px;
+        padding-top: 40px;
+    }
+
+    /* Estilos del formulario móvil */
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 90%;
+    }
+
+    .caja_input {
+        border: 2px solid #eee;
+        box-shadow: 0 0 10px #232323;
+        display: flex;
+        align-items: center;
+        border-radius: 40px;
+        padding: 30px;
+        height: 15px;
+    }
+
+    input {
+        background-color: transparent;
+        border: none;
+        outline: 0;
+        flex: 1;
+        color: #fff;
+    }
+
+    input::placeholder {
+        color: #ccc;
+    }
+
+    input:focus {
+        border-bottom: 2px solid #fff;
+    }
+}
+/* Fin del responsive */

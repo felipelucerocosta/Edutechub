@@ -1,0 +1,253 @@
+:root {
+  --primario: rgb(112, 139, 161);
+  --secundario: #f2f2f2;
+  --texto: #1c1c1c;
+  --borde: #dcdcdc;
+  --sombra: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #ffffff;
+  color: var(--texto);
+}
+header {
+    height: 65px;
+    background-color:rgb(79, 106, 128);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.74);
+}
+
+header h1 {
+  font-size: 35px;
+  color:rgb(2, 7, 75)
+}
+
+.logo {
+   display: flex;
+   padding: 40px;
+}
+    
+
+
+.nav-bar ul {
+    display: flex;
+    list-style: none;
+    
+}
+
+.nav-bar ul li a {
+    display: block;
+    color: #ffffff;
+    font-size: 19px;
+    padding: 10px 25px;
+    border-radius: 15px;
+    transition: 0.2s;
+    margin: 0 5px;
+    text-decoration: none;
+
+}
+
+.nav-bar ul li a:hover {
+    color :rgb(71, 89, 126) ;
+    background-color: #ffffff;
+}
+
+.nav-bar ul li a.active {
+    color :rgb(255, 255, 255) ;
+    background-color: #f2f2f2;
+}
+
+
+
+
+
+
+
+
+.contenedor {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 20px;
+  background-color: var(--secundario);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px var(--sombra);
+}
+
+.encabezado {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.encabezado h2 {
+  font-size: 1.8rem;
+  color: var(--primario);
+}
+
+.encabezado button {
+  background-color: var(--primario);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.encabezado button:hover {
+  background-color: #3a5365;
+}
+
+.formulario-nota {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.formulario-nota input,
+.formulario-nota select {
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  flex: 1 1 200px;
+}
+
+.formulario-nota button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.formulario-nota button:hover {
+  background-color: #218838;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px var(--sombra);
+}
+
+th {
+  background-color: var(--primario);
+  color: white;
+  padding: 12px;
+  font-weight: 600;
+  text-align: center;
+}
+
+td {
+  border: 1px solid var(--borde);
+  height: 100px;
+  vertical-align: top;
+  padding: 10px;
+  font-size: 0.95rem;
+  position: relative;
+}
+
+td::before {
+  content: attr(data-dia);
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  font-size: 0.8rem;
+  color: #888;
+}
+
+footer {
+  color: #777;
+  font-size: 13px;
+  text-align: center;
+  padding: 40px 10px 20px;
+}
+td {
+  position: relative;
+  border: 1px solid var(--borde);
+  height: 100px;
+  vertical-align: top;
+  padding: 5px;
+  background-color: #fff;
+  font-size: 0.95rem;
+}
+
+/* Número de día */
+.dia-num {
+  position: absolute;
+  top: 5px;
+  left: 8px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #555;
+}
+#abrir-nav,#cerrar-nav {
+  display: none;
+}
+
+@media (max-width:822px) {
+    .logo {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+    header {
+      width: 100%;
+      justify-content: space-between;
+    }
+    #abrir-nav,#cerrar-nav {
+    display: block;
+
+    }
+    #abrir-nav {
+      border: none;
+      background-color: transparent;
+      font-size: 25px;
+      padding-right:20PX ;
+      color: #f2f2f2;
+      cursor: pointer;
+    }
+    #cerrar-nav {
+      border: none;
+      background-color: transparent;
+      color: #f2f2f2;
+      font-size: 20px;
+      cursor: pointer;
+    }
+    
+    .nav-bar {
+      display: none;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #1C1C1C;
+      padding: 1.5rem;
+      box-shadow: 0 0 0 100vmax rgb(0, 0, 0,.5);
+    }
+    .nav-bar.active{
+      display: flex;
+      z-index: 100;
+    }
+    .nav-list {
+      flex-direction: column;
+      background-color: #1C1C1C;
+      text-align: end;
+
+    }
+
+  }
