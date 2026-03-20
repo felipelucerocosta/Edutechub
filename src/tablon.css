@@ -1,0 +1,244 @@
+/* ========== ESTILOS GENERALES ========== */
+body {
+  background-color: #f0f0f0;
+  font-family: 'Roboto', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  transition: all 0.4s ease;
+}
+
+a:hover,
+a:focus {
+  transform: scale(1.05);
+  outline: none;
+}
+
+a.nombre-logo {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+/* ========== HEADER ========== */
+header {
+  background-color: #84a6c4b6;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 65px;
+  width: 70px;
+  border-radius: 50%;
+  margin-right: 15px;
+  transition: transform 0.4s ease;
+}
+
+.logo img:hover {
+  transform: scale(1.1);
+}
+
+/* ========== NAVBAR ========== */
+nav {
+  display: flex;
+}
+
+nav a {
+  margin: 0 15px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+nav a:hover {
+  transform: scale(1.1);
+}
+
+/* ========== MENÚ HAMBURGUESA ========== */
+.menu-toggle {
+  display: none;
+  cursor: pointer;
+  background: #4380b48a;
+  border: none;
+  color: #000;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 20px;
+  text-shadow: 1px 1px 3px #000;
+  z-index: 101;
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  background: #7fa4c5;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  flex-direction: column;
+  min-width: 200px;
+  transform: scaleY(0);
+  transform-origin: top;
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.dropdown a {
+  padding: 12px 20px;
+  font-weight: 700;
+  display: block;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.dropdown a:last-child {
+  border-bottom: none;
+}
+
+.dropdown a:hover {
+  background-color: #678bad;
+  transform: scale(1.05);
+}
+
+.dropdown.show {
+  display: flex;
+  transform: scaleY(1);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ========== CONTENIDO PRINCIPAL ========== */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+}
+
+.main-content {
+  flex: 3;
+  background-color: #eee;
+  padding: 40px;
+  border-radius: 10px;
+  min-height: 300px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.main-content h2 {
+  margin-top: 0;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+textarea {
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  width: 100%;
+  resize: vertical;
+  margin-bottom: 15px;
+}
+
+#enviarMensaje {
+  background-color: #4380b4;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#enviarMensaje:hover {
+  background-color: #326a97;
+}
+
+#mensajes {
+  margin-top: 20px;
+  border: 1px solid #c7c0c0;
+  padding: 10px;
+  background: #fafafa;
+  min-height: 100px;
+  border-radius: 6px;
+}
+
+/* ========== ADMIN INFO ========== */
+.admin-title {
+  text-align: right;
+  font-size: 14px;
+  color: #555;
+  margin-top: 15px;
+  width: 100%;
+}
+
+/* ========== FOOTER ========== */
+footer {
+  color: #8a8080;
+  font-size: 13px;
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: auto;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+@media (max-width: 768px) {
+  nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+  }
+
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .main-content {
+    padding: 20px;
+  }
+
+  .dropdown {
+    right: 20px;
+    top: 70px;
+    width: 90%;
+    max-width: 300px;
+  }
+
+  .dropdown a {
+    padding: 15px;
+  }
+
+  .admin-title {
+    text-align: center;
+    margin-top: 30px;
+  }
+}

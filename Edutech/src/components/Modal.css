@@ -1,0 +1,149 @@
+/* ===== MODAL CSS (shared by CreateClassModal, JoinClassModal, CalendarTab) ===== */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 1000;
+  background: rgba(0,0,0,0.72); backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px; animation: fadeIn 0.2s ease;
+}
+@keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+
+.modal-box {
+  background: rgba(10,20,48,0.98); border: 1px solid var(--border-glass);
+  border-radius: 20px; padding: 28px; width: 100%; max-width: 560px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6), 0 0 40px rgba(0,212,255,0.05);
+  animation: slideUp 0.2s ease;
+}
+.modal-box--sm { max-width: 420px; }
+@keyframes slideUp { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
+
+.modal-title { font-size: 18px; font-weight: 700; color: var(--text-primary); margin-bottom: 20px; }
+.modal-desc  { font-size: 13px; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.6; }
+.modal-body  { display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px; }
+.modal-footer{ display: flex; gap: 10px; justify-content: flex-end; margin-top: 20px; }
+.modal-error {
+  font-size: 12px; color: #f87171;
+  background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.2);
+  border-radius: 8px; padding: 10px 14px; margin-top: 8px;
+}
+.modal-success {
+  font-size: 14px; color: #34d399;
+  background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.2);
+  border-radius: 10px; padding: 16px; text-align: center; margin-top: 8px;
+}
+
+/* ---- Stepper ---- */
+.modal-steps { display: flex; gap: 0; margin-bottom: 24px; }
+.modal-step {
+  display: flex; align-items: center; gap: 8px; flex: 1;
+  padding-bottom: 12px; border-bottom: 2px solid rgba(255,255,255,0.06);
+}
+.modal-step--active { border-bottom-color: var(--accent-cyan); }
+.modal-step--done   { border-bottom-color: rgba(0,212,255,0.3); }
+.step-num {
+  width: 24px; height: 24px; border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px; font-weight: 700; color: var(--text-muted);
+}
+.modal-step--active .step-num { border-color: var(--accent-cyan); color: var(--accent-cyan); }
+.modal-step--done   .step-num { border-color: rgba(0,212,255,0.4); color: #34d399; }
+.step-label { font-size: 11px; color: var(--text-muted); }
+.modal-step--active .step-label { color: var(--accent-cyan); font-weight: 600; }
+
+/* ---- Option chips (step 1 course/division) ---- */
+.option-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+.option-grid--div .option-chip { min-width: 44px; }
+.option-chip {
+  padding: 8px 14px; border-radius: 8px;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
+  color: var(--text-secondary); font-size: 12px; font-weight: 500; cursor: pointer;
+  transition: var(--transition);
+}
+.option-chip:hover { background: rgba(255,255,255,0.09); color: var(--text-primary); }
+.option-chip--active { background: rgba(26,111,255,0.2); border-color: rgba(26,111,255,0.5); color: #60a5fa; }
+
+/* ---- Subject list (step 2) ---- */
+.subject-list { display: flex; flex-direction: column; gap: 4px; max-height: 300px; overflow-y: auto; }
+.subject-item {
+  padding: 10px 14px; text-align: left; border-radius: 8px;
+  background: transparent; color: var(--text-secondary); font-size: 13px; cursor: pointer;
+  transition: var(--transition); border: none;
+}
+.subject-item:hover { background: rgba(255,255,255,0.05); color: var(--text-primary); }
+.subject-item--active { background: rgba(26,111,255,0.15); color: var(--accent-cyan); }
+
+/* ---- Confirm card (step 3) ---- */
+.confirm-card {
+  background: rgba(255,255,255,0.03); border: 1px solid var(--border-glass);
+  border-radius: 10px; padding: 16px; display: flex; flex-direction: column; gap: 10px;
+}
+.confirm-row { display: flex; justify-content: space-between; font-size: 13px; color: var(--text-secondary); }
+.confirm-row strong { color: var(--text-primary); }
+.confirm-info { font-size: 12px; color: var(--text-muted); margin-top: 8px; }
+
+/* ---- Join code input ---- */
+.join-code-input-wrap { margin: 8px 0 16px; }
+.join-code-input {
+  width: 100%; padding: 18px; text-align: center;
+  font-size: 26px; font-weight: 700; letter-spacing: 8px;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05); border: 2px solid var(--border-glass);
+  color: var(--text-primary); font-family: inherit; transition: var(--transition);
+}
+.join-code-input:focus { outline: none; border-color: var(--accent-cyan); box-shadow: 0 0 0 3px rgba(0,212,255,0.1); }
+
+/* ---- Buttons ---- */
+.btn-modal-cancel {
+  padding: 10px 20px; border-radius: 9px;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-secondary); font-size: 13px; cursor: pointer; transition: var(--transition);
+}
+.btn-modal-cancel:hover { background: rgba(255,255,255,0.09); color: var(--text-primary); }
+.btn-modal-next {
+  padding: 10px 24px; border-radius: 9px;
+  background: rgba(26,111,255,0.2); border: 1px solid rgba(26,111,255,0.4);
+  color: #60a5fa; font-size: 13px; font-weight: 600; cursor: pointer; transition: var(--transition);
+}
+.btn-modal-next:hover { background: rgba(26,111,255,0.3); }
+.btn-modal-create {
+  padding: 10px 24px; border-radius: 9px;
+  background: linear-gradient(135deg,#1a6fff,#00aaff);
+  color: #fff; font-size: 13px; font-weight: 700; cursor: pointer;
+  transition: var(--transition); box-shadow: 0 4px 16px rgba(26,111,255,0.3); border: none;
+}
+.btn-modal-create:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(26,111,255,0.45); }
+
+/* ---- Form helpers (shared across all tabs & modals) ---- */
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-label  { font-size: 11px; font-weight: 600; color: var(--text-secondary); letter-spacing: 0.5px; }
+.form-input-wrap {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(0,212,255,0.12);
+  border-radius: 10px; padding: 11px 14px; transition: var(--transition);
+}
+.form-input-wrap:focus-within { border-color: var(--accent-cyan); box-shadow: 0 0 0 3px rgba(0,212,255,0.06); }
+.form-input {
+  flex: 1; background: transparent; color: var(--text-primary);
+  font-size: 14px; font-family: inherit; resize: none; border: none; outline: none;
+}
+.form-input::placeholder { color: var(--text-muted); }
+.form-eye { background: transparent; font-size: 14px; cursor: pointer; border: none; }
+.form-select {
+  width: 100%; padding: 11px 14px; border-radius: 10px;
+  background: rgba(255,255,255,0.05); border: 1px solid rgba(0,212,255,0.12);
+  color: var(--text-primary); font-size: 14px; font-family: inherit; cursor: pointer; outline: none;
+}
+.form-row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.form-row   { display: flex; align-items: center; justify-content: space-between; font-size: 12px; }
+.form-check { display: flex; align-items: center; gap: 6px; color: var(--text-secondary); cursor: pointer; }
+.form-forgot { color: var(--accent-cyan); text-decoration: none; }
+.form-forgot:hover { text-decoration: underline; }
+
+/* btn-primary (login) */
+.btn-primary {
+  padding: 14px; background: linear-gradient(135deg,#1a6fff,#00aaff);
+  border-radius: 10px; color: #fff; font-weight: 700; font-size: 14px;
+  letter-spacing: 1px; cursor: pointer; transition: var(--transition);
+  box-shadow: 0 4px 20px rgba(26,111,255,0.35); border: none; width: 100%;
+}
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(26,111,255,0.5); }
